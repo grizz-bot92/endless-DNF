@@ -3,6 +3,8 @@ const app = express()
 
 app.use(express.json())
 
+const date = new Date();
+
 let runners = [
   {
     id: "1",
@@ -36,6 +38,14 @@ app.get('/', (req, res) => {
 
 app.get('/api/runners', (req, res) => {
   res.json(runners)
+})
+
+app.get('/api/info', (req, res) => {
+  res.send(`
+    <div>
+      <h1>There are ${runners.length} runners signed up!</h1>
+      <p>${date.toString()}</p>
+    </div>`)
 })
 
 app.get('/api/runners/:id', (req, res) => {
