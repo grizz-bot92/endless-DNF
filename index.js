@@ -1,7 +1,21 @@
 const express = require('express')
+const morgan = require('morgan')
 const app = express()
 
+app.use(morgan('tiny'))
 app.use(express.json())
+
+morgan.token('body', req => JSON.stringify(req.body))
+
+const requestLogger = (req, res, next) => {
+  console.log('Method:', req.method);
+  console.log('Path:', req.path);
+  console.log('Body:', req.body);
+  console.log('---');
+  next()
+}
+
+app.use(requestLogger);
 
 const date = new Date();
 
@@ -96,6 +110,13 @@ app.post('/api/runners', (req, res) => {
 
   res.json(runner)
 })
+
+const unknownEndpoint = (req, res) => {
+  res.status(404).send({ error: 'unknown endpoint' });
+}
+
+app.use(unknownEndpoint);
+
 
 const PORT = 3001
 app.listen(PORT, () => {
