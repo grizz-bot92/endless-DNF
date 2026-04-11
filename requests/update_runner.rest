@@ -1,0 +1,8 @@
+PUT http://localhost:3001/api/runners/69d274d4a7324c4ff0038583
+Content-Type: application/json
+
+{
+  "name": "Dad",
+  "bib_number": "55",
+  "checked_in": true
+}

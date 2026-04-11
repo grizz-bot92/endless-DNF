@@ -2,7 +2,7 @@ POST http://localhost:3001/api/runners
 Content-Type: application/json
 
 {
-  "name": "Grizzly",
-  "bib_number": "5",
+  "name": "Bella",
+  "bib_number": "65",
   "checked_in": true
 }
