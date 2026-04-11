@@ -3,6 +3,6 @@ Content-Type: application/json
 
 {
   "name": "Bella",
-  "bib_number": "65",
+  "bib_number": "75",
   "checked_in": true
 }

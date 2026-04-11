@@ -14,8 +14,18 @@ mongoose.connect(url, { family: 4 })
   })
 
 const runnerSchema = new mongoose.Schema({
-  name: String,
-  bib_number: String,
+  name: {
+    type: String,
+    minLength: 2,
+    required: true,
+  },
+  bib_number: {
+    type: String,
+    minLength: 1,
+    unique: true,
+    required: true,
+    description: 'Bib number must be unique'
+  },
   checked_in: Boolean,
 })
 

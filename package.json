@@ -18,6 +18,7 @@
     "start": "node index.js",
     "dev": "node --watch index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint .",
     "build:ui": "rm -rf dist && cd ../endless-DNF-frontend/ && npm run build && cp -r dist ../endless-DNF",
     "deploy": "fly deploy",
     "deploy:full": "npm run build:ui && npm run deploy",
@@ -30,6 +31,10 @@
     "morgan": "^1.10.1"
   },
   "devDependencies": {
-    "@flydotio/dockerfile": "^0.7.4"
+    "@eslint/js": "^10.0.1",
+    "@flydotio/dockerfile": "^0.7.4",
+    "@stylistic/eslint-plugin": "^5.10.0",
+    "eslint": "^10.2.0",
+    "globals": "^17.4.0"
   }
 }
