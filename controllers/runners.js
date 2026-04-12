@@ -13,7 +13,7 @@ runnerRouter.get('/:id', (req, res, next) => {
     .then(runner => {
       if(runner){
         res.json(runner)
-      }else{
+      } else {
         res.status(404).end()
       }
     })
@@ -73,10 +73,12 @@ runnerRouter.put('/:id', (req, res, next) => {
     .catch(error => next(error))
 })
 
-runnerRouter.delete(':/id', (req, res, next) => {
+runnerRouter.delete('/:id', (req, res, next) => {
   Runner.findByIdAndDelete(req.params.id)
-    .then(res => {
-      res.status(204).end()
+    .then(result => {
+      result.status(204).end()
     })
     .catch(error => next(error))
 })
+
+module.exports = runnerRouter
